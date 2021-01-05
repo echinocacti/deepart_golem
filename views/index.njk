@@ -1,0 +1,14 @@
+{% extends  layout %}
+{% block  content %}
+  <section class="border p-4 d-flex justify-content-center mb-4">
+    <div style="width: 22rem">
+    <form action="/upload_image" method="post">
+      <label for="content" class="form-label">Content</label>
+      <input class="form-control form-control-sm mb-2" id="content" type="file">
+      <label for="style" class="form-label">Style</label>
+      <input class="form-control form-control-sm mb-2" id="style" type="file">
+      <a class="auth-modal-toggle btn btn-primary ms-2 ripple-surface" data-auth-modal-tab="sign-in">Submit</a>
+    </form>
+    </div>
+  </section>
+{% endblock %}

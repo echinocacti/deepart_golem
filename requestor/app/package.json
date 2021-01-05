@@ -1,0 +1,22 @@
+{
+  "name": "deepart-golem-requestor",
+  "version": "0.1.0",
+  "description": "Deepart for golem network",
+  "repository": "https://github.com/echinocacti/deepart_golem",
+  "scripts": {
+    "deepart": "ts-node-script ./deepart.ts",
+    "clean": "rimraf node_modules/"
+  },
+  "author": "Echinocacti",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "dayjs": "^1.9.8",
+    "ts-node": "^9.1.1",
+    "yajsapi": "^0.2.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.7"
+  }
+}

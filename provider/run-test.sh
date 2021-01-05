@@ -1,0 +1,1 @@
+python3 deepart.py ./resources/elephant.jpg ./resources/munch.jpg ./output/deepart.jpg

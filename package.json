@@ -1,0 +1,34 @@
+{
+  "name": "deepart-golem",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Golem app to create art with deeplearning and style transfer",
+  "main": "bin/server.js",
+  "scripts": {
+    "start": "node ./bin/server",
+    "serve": "nodemon ./bin/server"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "author": "echinocacti",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-colors": "^4.1.1",
+    "app-root-path": "^3.0.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-icons": "^1.2.2",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "express-fileupload": "^1.2.0",
+    "formidable": "^1.2.2",
+    "fs-extra": "^9.0.1",
+    "http-errors": "^1.7.2",
+    "morgan": "^1.10.0",
+    "node-sass-middleware": "^0.11.0",
+    "nunjucks": "^3.2.2",
+    "shortid": "^2.2.16"
+  }
+}
