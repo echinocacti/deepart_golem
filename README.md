@@ -1,1 +1,1 @@
-# deepart_golem
+# Deep Art with Golem
