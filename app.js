@@ -9,7 +9,7 @@ const httpError = require('http-errors'),
 
 constants = {};
 constants.appRoot = require('app-root-path');
-
+console.log(constants.appRoot)
 // routes
 const indexRouter = require('./routes/index');
 const uploadRouter = require('./routes/upload');
@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/upload_image', uploadRouter);
+app.use('/api', uploadRouter);
 
 
 app.use(function(req, res, next) {

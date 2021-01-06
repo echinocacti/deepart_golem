@@ -6,7 +6,7 @@ router.get('/', async  function(req, res, next) {
   let  data = {
     message: 'Hello world!',
     layout:  'layout.njk',
-    title: 'Nunjucks example'
+    title: 'DeepArt'
   }
 
   res.render('index.njk', data)

@@ -26,19 +26,31 @@ async function main(subnetTag: string, hash: string, cpu: number, memory: number
   console.log("cpu=", cpu);
   console.log("memory=", memory);
   console.log("storage=", storage);
+  console.log("cimg=", cimg);
+  console.log("simg=", simg);
 
-  const _package = await vm.repo(hash, memory, storage, cpu);  
+  const _package = await vm.repo(hash, memory, storage, cpu); 
+
+  console.log(_package);
+
+  let contentPath = path.join(__dirname, cimg);
+  console.log(contentPath);
 
   async function* worker(ctx, tasks) {
     ctx.send_file(
       path.join(__dirname, cimg),
-      "/golem/resource/source.jpg"
+      "/golem/resource/src.jpg"
     );
+    ctx.send_file(
+      path.join(__dirname, simg),
+      "/golem/resource/style.jpg"
+    );
+
     for await (let task of tasks) {
       ctx.run("/golem/entrypoints/run.sh");
       ctx.download_file(
-        `/golem/output/deepart.png`,
-        path.join(__dirname, `./public/deepart.png`)
+        `/golem/output/deepart.jpg`,
+        path.join(__dirname, `./public/deepart.jpg`)
       );
       yield ctx.commit();
       // TODO: Check
@@ -60,9 +72,7 @@ async function main(subnetTag: string, hash: string, cpu: number, memory: number
       "10.0",
       undefined,
       subnetTag,
-      (event) => {
-        console.debug(event);
-      }
+      logUtils.logSummary()
     ),
     async (engine) => {
       for await (let task of engine.map(
@@ -87,8 +97,8 @@ program
   .option('-c, --cpu <number>', '# of cores required', parseIntParam)
   .option('-m, --memory <number>', 'GB of memory required', parseIntParam)
   .option('-s, --storage <number>', 'GB of storage required', parseIntParam)
-  .requiredOption('-cimg <path>', 'path to content image')
-  .requiredOption('-simg <path>', 'path to style image')
+  .requiredOption('--cimg <path>', 'path to content image')
+  .requiredOption('--simg <path>', 'path to style image')
 program.parse(process.argv);
 if (program.debug) {
   utils.changeLogLevel("debug");

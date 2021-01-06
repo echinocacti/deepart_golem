@@ -5,7 +5,8 @@
   "repository": "https://github.com/echinocacti/deepart_golem",
   "scripts": {
     "deepart": "ts-node-script ./deepart.ts",
-    "clean": "rimraf node_modules/"
+    "clean": "rimraf node_modules/",
+    "build": "tsc"
   },
   "author": "Echinocacti",
   "dependencies": {

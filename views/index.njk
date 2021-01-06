@@ -2,13 +2,26 @@
 {% block  content %}
   <section class="border p-4 d-flex justify-content-center mb-4">
     <div style="width: 22rem">
-    <form action="/upload_image" method="post">
+    <form id="form" action="/api/upload" method="post">
+      <section>
       <label for="content" class="form-label">Content</label>
-      <input class="form-control form-control-sm mb-2" id="content" type="file">
+      <input name="content" class="form-control form-control-sm mb-2" id="content" type="file">
+      <img id="content-preview" src="" height="200" alt="Image preview..." style="display:none" />
+      </section>
+      <section>
       <label for="style" class="form-label">Style</label>
-      <input class="form-control form-control-sm mb-2" id="style" type="file">
-      <a class="auth-modal-toggle btn btn-primary ms-2 ripple-surface" data-auth-modal-tab="sign-in">Submit</a>
+      <input name="style" class="form-control form-control-sm mb-2" id="style" type="file">
+      <img id="style-preview" src="" height="200" alt="Image preview..." style="display:none" />
+      </section>
+      <input type="submit" class="auth-modal-toggle btn btn-primary ms-2 ripple-surface" data-auth-modal-tab="sign-in">Submit</a>
     </form>
     </div>
+  </section>
+
+  <section class="border p-4 d-flex justify-content-center mb-4">
+  <h2>Result</h2>
+  <div class="container">
+  <img id="result" src="" alt="Image preview..." style="display:none" />
+  </div>
   </section>
 {% endblock %}
